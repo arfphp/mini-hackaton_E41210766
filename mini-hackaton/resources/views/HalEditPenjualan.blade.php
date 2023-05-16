@@ -14,7 +14,12 @@
     <h1 class="text-center">Halaman Edit Data</h1>
     <div class="container">
         <form action="/penjualan/{{ $editData->id }}" method="post" class="form-input">
+            {{-- digunakan untuk menghasilkan token CSRF (Cross-Site Request Forgery) yang akan digunakan sebagai langkah perlindungan keamanan
+                saat mengirimkan form. Token CSRF ini memastikan bahwa form dikirimkan hanya oleh aplikasi web yang valid. --}}
             @csrf
+            {{-- digunakan untuk memanipulasi metode HTTP yang akan digunakan dalam pengiriman form. directive ini menginstruksikan Laravel
+                untuk memperlakukan pengiriman form ini sebagai permintaan "PUT". Ini berguna ketika Anda ingin mengirimkan form untuk mengubah data yang sudah ada,
+                di mana metode HTTP PUT umumnya digunakan untuk operasi update. --}}
             @method('put')
             <div class="mb-2">
                 <label class="form-label" for="">Jenis Batu Bata</label>
