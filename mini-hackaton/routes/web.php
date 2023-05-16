@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PenjualanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/penjualan', [PenjualanController::class, 'index'])->name('hal_utama');
+Route::post('/penjualan/create', [PenjualanController::class, 'create']);
+Route::get('/penjualan/{id}', [PenjualanController::class, 'edit'])->name('hal_update');
+Route::put('/penjualan/{id}', [PenjualanController::class, 'update']);
+Route::delete('/penjualan/{id}', [PenjualanController::class, 'destroy'])->name('destroy');
